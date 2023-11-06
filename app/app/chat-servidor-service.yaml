@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chat-servidor-service
+spec:
+  selector:
+    app: chat-servidor
+  ports:
+  - protocol: TCP
+    port: 5555
+    targetPort: 5555

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat-cliente
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chat-cliente
+  template:
+    metadata:
+      labels:
+        app: chat-cliente
+    spec:
+      containers:
+      - name: chat-cliente
+        image: chat3:latest

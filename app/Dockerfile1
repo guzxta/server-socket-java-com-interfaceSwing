@@ -1,0 +1,21 @@
+# Use a imagem base do Ubuntu
+FROM ubuntu:latest
+
+# Instale as dependências necessárias
+RUN apt-get update && apt-get install -y \
+    openjdk-17-jre \
+    xorg \
+    x11-apps \
+    x11-utils
+
+#ambiente para o servidor X
+ENV DISPLAY=:0
+
+# Copie o arquivo JAR da sua aplicação para o contêiner
+COPY Client.jar /app/Client.jar
+
+# Defina o diretório de trabalho
+WORKDIR /app
+
+# Comando de execução da aplicação Java Swing
+CMD ["java", "-jar", "Client.jar"]
